@@ -8,7 +8,7 @@ import warnings
 from   gurobipy import *
 warnings.filterwarnings("ignore", category=matplotlib.cbook.mplDeprecation) 
 
-def solver(edges, capacity, plot=False, lp='graph.lp', verbose=0):
+def solver(edges, capacity, plot=False, lp='output/graph.lp', verbose=0):
     G=nx.DiGraph()
     for edge in filter(None, edges.split('\n')):
         src, dest, weight = map(int, edge.split())

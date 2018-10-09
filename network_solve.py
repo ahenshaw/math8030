@@ -15,4 +15,4 @@ capacity = {1:1, 2:3, 6:-4}
 # If not specified, defaults to 0
 
 from network import solver
-solver(edges, capacity, plot=False, verbose=False)
+solver(edges, capacity, plot=True, verbose=False)
