@@ -1,3 +1,4 @@
+# fill in the following cost matrix
 costs = '''
 1 3 5 -1 0 2
 2 3 5 6 1 3
