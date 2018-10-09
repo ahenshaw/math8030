@@ -10,7 +10,7 @@ import numpy as np
 
 def northwest(costs, supply, demand):
     print('\nNorthwest method')
-    x = np.zeros(costs.shape)
+    x = np.zeros(costs.shape, dtype=int)
     r = 0
     c = 0
     bfs = []
