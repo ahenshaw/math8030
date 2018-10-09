@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>MATH8030 Simplex Steps</title>
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\(','\)']],
+    processEscapes: true
+  }
+});
+</script>
+</head>
+<body>
+<p>
+Initial tableau$$
+\begin{array}{r|rrrrrrr|r}
+    & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & RHS \\
+\hline
+z & 2 & 3 & 4 & 5 & 0 & 0 & 0 & 0 \\[2pt]
+\hline
+x_5 & \boxed{-1} & 1 & -1 & 1 & 1 & 0 & 0 & -10 \\[2pt]
+x_6 & -1 & 2 & -3 & 4 & 0 & 1 & 0 & -6 \\[2pt]
+x_7 & -3 & 4 & -5 & 6 & 0 & 0 & 1 & -15 \\[2pt]
+\end{array}
+$$
+$x_5$ exits. $x_1$ enters$$
+\begin{array}{r|rrrrrrr|r}
+    & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & RHS \\
+\hline
+z & 0 & 5 & 2 & 7 & 2 & 0 & 0 & -20 \\[2pt]
+\hline
+x_1 & 1 & -1 & 1 & -1 & -1 & 0 & 0 & 10 \\[2pt]
+x_6 & 0 & 1 & -2 & 3 & -1 & 1 & 0 & 4 \\[2pt]
+x_7 & 0 & 1 & -2 & 3 & -3 & 0 & 1 & 15 \\[2pt]
+\end{array}
+$$
+
+</p>
+</body>
+</html>
