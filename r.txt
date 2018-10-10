@@ -1,0 +1,5 @@
+> library(gurobi)
+> model <- gurobi_read('/temp/temp.lp')
+> 
+result$objval
+result$x

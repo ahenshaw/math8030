@@ -58,4 +58,42 @@ print('Subtract x from uncovered cells')
 print('Add x to intersection points of lines')
 print('Repeat until zero on each row and column')
 
+LP = True
+VERBOSE = False
+if LP:
+    print('\n----- Gurobi Solver -----\n')
+    from gurobipy import *
+    m = Model()
+    m.setParam(GRB.Param.OutputFlag, VERBOSE)
+
+    x = {}
+    r, c = costs.shape
+    for i in range(r):
+        for j in range(c):
+            x[i,j] = m.addVar(0, 1, costs[i,j], GRB.BINARY, 'x{}{}'.format(i+1, j+1))
+
+    # Each row must be assigned to one column
+    for i in range(r):
+        expr = LinExpr()
+        for j in range(c):
+            expr.addTerms(1, x[i, j])
+        m.addConstr(expr, GRB.EQUAL, 1)
+
+    # Each column must be assigned to one row
+    for j in range(c):
+        expr = LinExpr()
+        for i in range(r):
+            expr.addTerms(1, x[i, j])
+        m.addConstr(expr, GRB.EQUAL, 1)
+    
+    m.update()
+    m.write('output/match.lp')
+    m.optimize()
+    print('\nObjective = {}'.format(m.ObjVal))
+    for i, j in sorted(x):
+        v = x[i, j].x
+        if v > 0.5:
+            print ('x{}{} = {}'.format(i+1, j+1 , 1))
+
+
 
